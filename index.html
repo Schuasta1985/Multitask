@@ -72,14 +72,41 @@
         </p>
 
         <div style="text-align:center; margin-top: 20px;">
-            <h2>🎥 So funktioniert das Spiel</h2>
-            <p>Schau dir das kurze Erklärvideo an:</p>
-            <a href="https://share.synthesia.io/7e8a7e7f-2e72-4137-ad85-3902517d4ba3" target="_blank">
-                <button style="padding: 10px 15px; font-size: 18px; background-color: #007bff; color: white; border: none; cursor: pointer; border-radius: 5px;">
-                    ▶ Video ansehen
-                </button>
-            </a>
-        </div>
+    <h2>🎮 So funktioniert das Spiel</h2>
+    <p>Schau dir das kurze Erklärvideo an:</p>
+    <button id="openVideo" style="padding: 10px 15px; font-size: 18px; background-color: #007bff; color: white; border: none; cursor: pointer; border-radius: 5px;">
+        ▶ Video ansehen
+    </button>
+</div>
+
+<!-- Popup-Container -->
+<div id="videoPopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0, 0, 0, 0.7); text-align:center;">
+    <div style="position:relative; width:80%; max-width:700px; margin:10% auto; background:#222; padding:20px; border-radius:10px;">
+        <span id="closePopup" style="position:absolute; top:10px; right:15px; font-size:24px; cursor:pointer; color:white;">✖</span>
+        <h2 style="color:white;">📽 Erklärvideo</h2>
+        <iframe width="100%" height="400px" src="https://share.synthesia.io/7e8a7e7f-2e72-4137-ad85-3902517d4ba3" frameborder="0" allowfullscreen></iframe>
+    </div>
+</div>
+
+<!-- Script für das Popup -->
+<script>
+    document.getElementById("openVideo").addEventListener("click", function() {
+        document.getElementById("videoPopup").style.display = "block";
+    });
+
+    document.getElementById("closePopup").addEventListener("click", function() {
+        document.getElementById("videoPopup").style.display = "none";
+    });
+
+    // Schließen, wenn man außerhalb klickt
+    window.onclick = function(event) {
+        var popup = document.getElementById("videoPopup");
+        if (event.target == popup) {
+            popup.style.display = "none";
+        }
+    }
+</script>
+
     </footer>
 
 </body>
